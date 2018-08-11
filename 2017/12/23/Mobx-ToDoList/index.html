@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Mobx 初探什么是Mobx 官网github-mobx  1234MobX 是一个经过战火洗礼的库，它通过透明的函数响应式编程(transparently applying functional reactive programming - TFRP)使得状态管理变得简单和可扩展。  更多详细介绍，请移步官网细阅。 为什么使用Mobx React 和 MobX 是一对强力组合。React 通过提">
+<meta name="keywords" content="技术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mobx 初探">
+<meta property="og:url" content="https://githubjike.github.io/2017/12/23/Mobx-ToDoList/index.html">
+<meta property="og:site_name" content="PeterYuan&#39;s Blog">
+<meta property="og:description" content="Mobx 初探什么是Mobx 官网github-mobx  1234MobX 是一个经过战火洗礼的库，它通过透明的函数响应式编程(transparently applying functional reactive programming - TFRP)使得状态管理变得简单和可扩展。  更多详细介绍，请移步官网细阅。 为什么使用Mobx React 和 MobX 是一对强力组合。React 通过提">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://cn.mobx.js.org/flow.png">
+<meta property="og:image" content="https://thumbnail0.baidupcs.com/thumbnail/537c4003af1581363547bb5c15dfed80?fid=3929020572-250528-342868260175806&time=1514019600&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-QZ1xavc6uNw6wJCQOySTm%2BHz4KY%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=8273303735290392813&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video">
+<meta property="og:image" content="https://thumbnail0.baidupcs.com/thumbnail/3b3f68cea2e0a84dbdbee84b9066b8d1?fid=3929020572-250528-464394264288365&time=1514019600&rt=sh&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-7n8nPdwolvskHqOz2ktGLOayTZo%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=8273592634680096080&dp-callid=0&size=c710_u400&quality=100&vuk=-&ft=video">
+<meta property="og:updated_time" content="2017-12-23T09:55:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mobx 初探">
+<meta name="twitter:description" content="Mobx 初探什么是Mobx 官网github-mobx  1234MobX 是一个经过战火洗礼的库，它通过透明的函数响应式编程(transparently applying functional reactive programming - TFRP)使得状态管理变得简单和可扩展。  更多详细介绍，请移步官网细阅。 为什么使用Mobx React 和 MobX 是一对强力组合。React 通过提">
+<meta name="twitter:image" content="http://cn.mobx.js.org/flow.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Mobx 初探</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 vazir">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2017/12/24/buddha/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2017/12/23/parcel-react-demo/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://githubjike.github.io/2017/12/23/Mobx-ToDoList/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://githubjike.github.io/2017/12/23/Mobx-ToDoList/&text=Mobx 初探"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://githubjike.github.io/2017/12/23/Mobx-ToDoList/&title=Mobx 初探"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://githubjike.github.io/2017/12/23/Mobx-ToDoList/&is_video=false&description=Mobx 初探"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Mobx 初探&body=Check out this article: https://githubjike.github.io/2017/12/23/Mobx-ToDoList/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://githubjike.github.io/2017/12/23/Mobx-ToDoList/&title=Mobx 初探"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://githubjike.github.io/2017/12/23/Mobx-ToDoList/&title=Mobx 初探"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://githubjike.github.io/2017/12/23/Mobx-ToDoList/&title=Mobx 初探"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://githubjike.github.io/2017/12/23/Mobx-ToDoList/&title=Mobx 初探"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://githubjike.github.io/2017/12/23/Mobx-ToDoList/&name=Mobx 初探&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mobx-初探"><span class="toc-number">1.</span> <span class="toc-text">Mobx 初探</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是Mobx"><span class="toc-number">1.1.</span> <span class="toc-text">什么是Mobx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么使用Mobx"><span class="toc-number">1.2.</span> <span class="toc-text">为什么使用Mobx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何使用"><span class="toc-number">1.3.</span> <span class="toc-text">如何使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑器"><span class="toc-number">1.3.1.</span> <span class="toc-text">编辑器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#编辑器配置"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">编辑器配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#依赖"><span class="toc-number">1.3.2.</span> <span class="toc-text">依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">1.3.3.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">1.3.4.</span> <span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#store-创建"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">store 创建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ToDo组件"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">ToDo组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#App-js"><span class="toc-number">1.3.4.3.</span> <span class="toc-text">App.js</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#效果图"><span class="toc-number">1.3.5.</span> <span class="toc-text">效果图</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Mobx 初探
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">PeterYuan's Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-12-23T09:55:00.000Z" itemprop="datePublished">2017-12-23</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/技术/">技术</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="Mobx-初探"><a href="#Mobx-初探" class="headerlink" title="Mobx 初探"></a>Mobx 初探</h1><h2 id="什么是Mobx"><a href="#什么是Mobx" class="headerlink" title="什么是Mobx"></a>什么是Mobx</h2><blockquote>
+<p><a href="http://cn.mobx.js.org/" target="_blank" rel="noopener">官网</a><br><a href="https://github.com/mobxjs/mobx" target="_blank" rel="noopener">github-mobx</a></p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MobX 是一个经过战火洗礼的库，</span><br><span class="line">它通过透明的函数响应式编程</span><br><span class="line">(transparently applying functional reactive programming - TFRP)</span><br><span class="line">使得状态管理变得简单和可扩展。</span><br></pre></td></tr></table></figure>
+<p><img src="http://cn.mobx.js.org/flow.png" alt="pic"></p>
+<p>更多详细介绍，请移步官网细阅。</p>
+<h2 id="为什么使用Mobx"><a href="#为什么使用Mobx" class="headerlink" title="为什么使用Mobx"></a>为什么使用Mobx</h2><blockquote>
+<p>React 和 MobX 是一对强力组合。React 通过提供机制把应用状态转换为可渲染组件树并对其进行渲染。而MobX提供机制来存储和更新应用状态供 React 使用。 ——官方文档</p>
+</blockquote>
+<p>可能我们都比较熟悉Redux,简而言之Mobx是比Redux更有力的和React结合使用的助手。</p>
+<h2 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h2><blockquote>
+<p>下面我们就用一个例子简单的使用Mobx——ToDOList.<br>Talking is cheap, show me your code!<br><a href="https://github.com/GitHubJiKe/parcel-react-demo" target="_blank" rel="noopener">代码地址</a> 由于没有和parcel使用初探的代码分离，所以，希望你也能看的明白</p>
+</blockquote>
+<h3 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h3><p>VSCode </p>
+<h4 id="编辑器配置"><a href="#编辑器配置" class="headerlink" title="编辑器配置"></a>编辑器配置</h4><blockquote>
+<p>为了使用Es.next的装饰器语言@，需要配置VsCode，具体——<a href="http://cn.mobx.js.org/best/decorators.html" target="_blank" rel="noopener">如何(不)使用装饰器</a></p>
+</blockquote>
+<p><img src="https://thumbnail0.baidupcs.com/thumbnail/537c4003af1581363547bb5c15dfed80?fid=3929020572-250528-342868260175806&amp;time=1514019600&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-QZ1xavc6uNw6wJCQOySTm%2BHz4KY%3D&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=8273303735290392813&amp;dp-callid=0&amp;size=c710_u400&amp;quality=100&amp;vuk=-&amp;ft=video" alt="vscode setup"></p>
+<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//package.json file setup:</span><br><span class="line">  &quot;dependencies&quot;: &#123;</span><br><span class="line">    &quot;mobx&quot;: &quot;^3.4.1&quot;,</span><br><span class="line">    &quot;mobx-react&quot;: &quot;^4.3.5&quot;,</span><br><span class="line">    &quot;react&quot;: &quot;^16.2.0&quot;,</span><br><span class="line">    &quot;react-dom&quot;: &quot;^16.2.0&quot;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//package.json file setup:</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;babel-cli&quot;: &quot;^6.26.0&quot;,</span><br><span class="line">    &quot;babel-plugin-transform-decorators-legacy&quot;: &quot;^1.3.4&quot;,</span><br><span class="line">    &quot;babel-preset-env&quot;: &quot;^1.6.1&quot;,</span><br><span class="line">    &quot;babel-preset-es2015&quot;: &quot;^6.24.1&quot;,</span><br><span class="line">    &quot;babel-preset-react&quot;: &quot;^6.24.1&quot;,</span><br><span class="line">    &quot;babel-preset-stage-1&quot;: &quot;^6.24.1&quot;,</span><br><span class="line">    &quot;mobx-react-devtools&quot;: &quot;^4.2.15&quot;,</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//.babelrc file setup:</span><br><span class="line">&#123;</span><br><span class="line">  &quot;presets&quot;: [</span><br><span class="line">    &quot;env&quot;,</span><br><span class="line">    &quot;react&quot;,</span><br><span class="line">    &quot;es2015&quot;,</span><br><span class="line">    &quot;stage-1&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;plugins&quot;: [</span><br><span class="line">    &quot;transform-decorators-legacy&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="store-创建"><a href="#store-创建" class="headerlink" title="store 创建"></a>store 创建</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">import &#123; observable, autorun, computed, action &#125; from &apos;mobx&apos;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class toDo &#123;</span><br><span class="line">  id = Math.random();</span><br><span class="line">  @observable title = &apos;&apos;;</span><br><span class="line">  @observable completed = false;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class todoStore &#123;</span><br><span class="line">  @observable todos = [];</span><br><span class="line"></span><br><span class="line">  @computed get completedCount() &#123;</span><br><span class="line">    return this.todos.filter(todo =&gt; todo.completed).length;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  @computed get totalCount() &#123;</span><br><span class="line">    return this.todos.length;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @action.bound toggleCompleted(id) &#123;</span><br><span class="line">    this.todos.forEach(todo =&gt; &#123;</span><br><span class="line">      if (todo.id === id) todo.completed = !todo.completed;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @action.bound addToDo(title) &#123;</span><br><span class="line">    if (!title) return alert(&apos;please input something...&apos;);</span><br><span class="line">    let todo = new toDo();</span><br><span class="line">    todo.title = title;</span><br><span class="line">    this.todos.push(todo);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">const store = new todoStore();</span><br><span class="line"></span><br><span class="line">export &#123; store &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="ToDo组件"><a href="#ToDo组件" class="headerlink" title="ToDo组件"></a>ToDo组件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &apos;react&apos;;</span><br><span class="line">import &#123; observer &#125; from &quot;mobx-react&quot;;</span><br><span class="line">import &#123; store &#125; from &apos;../../store&apos;</span><br><span class="line">import &apos;./style.css&apos;</span><br><span class="line"></span><br><span class="line">@observer export default class ToDo extends Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123; title, id, completed &#125; = this.props;</span><br><span class="line">    return (&lt;div</span><br><span class="line">      className=&#123;`todo $&#123;completed ? &apos;completed&apos; : &apos;&apos;&#125;`&#125;</span><br><span class="line">      onClick=&#123;() =&gt; store.toggleCompleted(id)&#125;</span><br><span class="line">    &gt;</span><br><span class="line">      &#123;title&#125;</span><br><span class="line">    &lt;/div&gt;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">//style.css</span><br><span class="line">.todo&#123;</span><br><span class="line">  background-color: white;</span><br><span class="line">  text-align: center;</span><br><span class="line">  font-size: 30px;</span><br><span class="line">  margin: 3px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.todo.completed&#123;</span><br><span class="line">  background-color: brown;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="App-js"><a href="#App-js" class="headerlink" title="App.js"></a>App.js</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; Component &#125; from &apos;react&apos;</span><br><span class="line">import &#123; observer &#125; from &quot;mobx-react&quot;;</span><br><span class="line">import DevTools from &apos;mobx-react-devtools&apos;</span><br><span class="line">import ToDo from &apos;./components/ToDo&apos;</span><br><span class="line">import &#123; store &#125; from &apos;./store&apos;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const TEXT = &apos;please input something...&apos;;</span><br><span class="line">const ToDoList = (&#123; todos &#125;) =&gt; todos.map(t =&gt; &lt;ToDo key=&#123;t.id&#125; &#123;...t&#125; /&gt;);</span><br><span class="line"></span><br><span class="line">@observer export default class App extends Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">    this.state = &#123;</span><br><span class="line">      title: &apos;&apos;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    const &#123; title &#125; = this.state;</span><br><span class="line">    const &#123; todos, totalCount, completedCount &#125; = store;</span><br><span class="line">    return (&lt;div className=&quot;APP&quot;&gt;</span><br><span class="line">      &lt;input</span><br><span class="line">        style=&#123;&#123; width: 300 &#125;&#125;</span><br><span class="line">        placeholder=&#123;TEXT&#125;</span><br><span class="line">        value=&#123;title&#125;</span><br><span class="line">        onChange=&#123;e =&gt; this.setState(&#123; title: e.currentTarget.value &#125;)&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; &#123;</span><br><span class="line">        store.addToDo(title);</span><br><span class="line">        this.setState(&#123; title: &apos;&apos; &#125;);</span><br><span class="line">      &#125;&#125;&gt;Add one ToDo&lt;/button&gt;</span><br><span class="line">      &lt;div&gt;&#123;`total count:$&#123;totalCount&#125;`&#125;&lt;/div&gt;</span><br><span class="line">      &lt;div&gt;&#123;`total completed count:$&#123;completedCount&#125;`&#125;&lt;/div&gt;</span><br><span class="line">      &lt;ToDoList todos=&#123;todos&#125; /&gt;</span><br><span class="line">      &lt;DevTools /&gt;</span><br><span class="line">    &lt;/div&gt;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="https://thumbnail0.baidupcs.com/thumbnail/3b3f68cea2e0a84dbdbee84b9066b8d1?fid=3929020572-250528-464394264288365&amp;time=1514019600&amp;rt=sh&amp;sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-7n8nPdwolvskHqOz2ktGLOayTZo%3D&amp;expires=8h&amp;chkv=0&amp;chkbd=0&amp;chkpc=&amp;dp-logid=8273592634680096080&amp;dp-callid=0&amp;size=c710_u400&amp;quality=100&amp;vuk=-&amp;ft=video" alt="show"></p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mobx-初探"><span class="toc-number">1.</span> <span class="toc-text">Mobx 初探</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是Mobx"><span class="toc-number">1.1.</span> <span class="toc-text">什么是Mobx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么使用Mobx"><span class="toc-number">1.2.</span> <span class="toc-text">为什么使用Mobx</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何使用"><span class="toc-number">1.3.</span> <span class="toc-text">如何使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑器"><span class="toc-number">1.3.1.</span> <span class="toc-text">编辑器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#编辑器配置"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">编辑器配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#依赖"><span class="toc-number">1.3.2.</span> <span class="toc-text">依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-number">1.3.3.</span> <span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-number">1.3.4.</span> <span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#store-创建"><span class="toc-number">1.3.4.1.</span> <span class="toc-text">store 创建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ToDo组件"><span class="toc-number">1.3.4.2.</span> <span class="toc-text">ToDo组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#App-js"><span class="toc-number">1.3.4.3.</span> <span class="toc-text">App.js</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#效果图"><span class="toc-number">1.3.5.</span> <span class="toc-text">效果图</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://githubjike.github.io/2017/12/23/Mobx-ToDoList/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://githubjike.github.io/2017/12/23/Mobx-ToDoList/&text=Mobx 初探"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://githubjike.github.io/2017/12/23/Mobx-ToDoList/&title=Mobx 初探"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://githubjike.github.io/2017/12/23/Mobx-ToDoList/&is_video=false&description=Mobx 初探"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Mobx 初探&body=Check out this article: https://githubjike.github.io/2017/12/23/Mobx-ToDoList/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://githubjike.github.io/2017/12/23/Mobx-ToDoList/&title=Mobx 初探"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://githubjike.github.io/2017/12/23/Mobx-ToDoList/&title=Mobx 初探"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://githubjike.github.io/2017/12/23/Mobx-ToDoList/&title=Mobx 初探"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://githubjike.github.io/2017/12/23/Mobx-ToDoList/&title=Mobx 初探"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://githubjike.github.io/2017/12/23/Mobx-ToDoList/&name=Mobx 初探&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 Peter Yuan
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+

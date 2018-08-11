@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[Test]]></title>
+    <url>%2F2018%2F08%2F12%2F2018-08-12%2F</url>
+    <content type="text"><![CDATA[somethingsomethingsomething]]></content>
+      <tags>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Say something]]></title>
+    <url>%2F2018%2F06%2F25%2Fenglish%2F</url>
+    <content type="text"><![CDATA[Sometimes I don’t want to do anything, and sometimes I have a lot of ambitions, even to conquer the world. To some extent, I am not really like what I am doing.But it’s hard to make changes, it costs lot. I always think about to go another city and have another life, but I always give up without moving one step. I always tell myself, I am different with others.I am the unique one! I can do anything I waht to, if I try hard!]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[CSS-知识点]]></title>
+    <url>%2F2018%2F06%2F25%2FCSS-%E7%9F%A5%E8%AF%86%E7%82%B9%2F</url>
+    <content type="text"><![CDATA[before &amp;&amp; after 选择器 #box1 p{ font-size:15pt; } #box1 p:before{ content:"Before Content"; color:yellow; background-color:red; padding:10px; font-size: 20pt } #box1 p:after{ content:"After Content"; color:blue; background-color:red; padding:10px; } middle content1 middle content2 middle content3 before实在元素的前面添加content内容，可以是字符串，url(音频，图片，media)，after实在元素的后面添加这些内容 1234567891011121314151617181920212223242526//上图代码展示&lt;style&gt; #box1 p&#123; font-size:15pt; &#125; #box1 p:before&#123; content:"Before Content"; color:yellow; background-color:red; padding:10px; font-size: 20pt &#125; #box1 p:after&#123; content:"After Content"; color:blue; background-color:red; padding:10px; &#125;&lt;/style&gt;&lt;div id="box1"&gt; &lt;p&gt;middle content1&lt;/p&gt; &lt;p&gt;middle content2&lt;/p&gt; &lt;p&gt;middle content3&lt;/p&gt;&lt;/div&gt; !important 最高权重 #box2{ padding:20px; border: 1px solid red; } #box2 span{ font-size:18pt; } span{ font-size:10pt !important; } #box3{ padding:20px; border: 1px solid brown; } #box3 label{ font-size:20pt; } label{ font-size:10pt; } this is box2 this is span this is box3 this is span 对比box2 和box3内的span和label的字体可以看出！important将元素的优先级被提高了。 1234567891011121314151617181920212223242526272829303132//上图代码展示&lt;style&gt; #box2&#123; padding:20px; border: 1px solid red; &#125; #box2 span&#123; font-size:18pt; &#125; span&#123; font-size:10pt !important; &#125; #box3&#123; padding:20px; border: 1px solid brown; &#125; #box3 label&#123; font-size:20pt; &#125; label&#123; font-size:10pt; &#125;&lt;/style&gt;&lt;div id="box2"&gt; this is box2 &lt;span&gt;this is span&lt;/span&gt;&lt;/div&gt;&lt;div id="box3"&gt; this is box3 &lt;label&gt;this is span&lt;/label&gt;&lt;/div&gt;]]></content>
+      <tags>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JS for ... of]]></title>
+    <url>%2F2018%2F04%2F09%2Fjs-for-of%2F</url>
+    <content type="text"><![CDATA[ES6介绍ES6 借鉴 C++、Java、C# 和 Python 语言，引入了for…of循环，作为遍历所有数据结构的统一的方法。 一个数据结构只要部署了Symbol.iterator属性，就被视为具有 iterator 接口，就可以用for…of循环遍历它的成员。也就是说，for…of循环内部调用的是数据结构的Symbol.iterator方法。 for…of循环可以使用的范围包括数组、Set 和 Map 结构、某些类似数组的对象（比如arguments对象、DOM NodeList 对象）、后文的 Generator 对象，以及字符串。 for…of使用1234567891011const arr = [1,2,3,4,5,6];for(let num of arr)&#123; console.log(num);&#125;//打印结果：123456 等同于forEach1234567891011const arr = [1,2,3,4,5,6];arr.forEach(v=&gt;&#123; console.log(v);&#125;)//打印结果：123456]]></content>
+      <categories>
+        <category>JS 技术</category>
+      </categories>
+      <tags>
+        <tag>JS 技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Vue-Vuex]]></title>
+    <url>%2F2018%2F01%2F06%2FVue-Vuex%2F</url>
+    <content type="text"><![CDATA[为什么研究Vue 作为一个前端开发，不会Vue简直呵呵。—— 某资深前端开发工程师曰。 前兆我从入门前端，第一次亲密接触的就是React，直到最近team重组，新的leader在一次晨会中曰：“希望以后我们组的前端能使用Vue来开发。” 而我们组的前端，貌似就剩我自己了，另外一个还想着回归Java。 这让我这个React起家的小前端工程师，内心一万头XXX…奔腾而过。 当然Vue是很好的（要不然也不会在这BB了）。但是，脱离舒适区是一个痛苦的事情，脱离使用了很久的框架转战新的工具，搁谁都不可能很欢喜。但是，这是一个过程，需要慢慢适应…… 突如其来的挑战PO小姐姐来找我，问我手上活怎么样，是不是还在写bug。我说写的差不多了，呸，改的差不多了！ 呵呵呵，那就给你介绍个新活呗。噼里啪啦一通讲。没懂啊。不要紧，我们上楼找帮手。（楼上新办公室，两层办公区，牛X的不要不要的），于是跟着PO小姐姐上楼吸甲醛。 我们组一直都是用Vue做项目啊，如果用React做，以后维护起来…… 那好吧，我可以学习Vue。这就是我，学习动力十足的我。 下周二要Demo哦。MMP，今天周五了，回家学习两天，周二你就要一个Vue和H5结合的Demo，还是音乐视频互动感超强的那种？ 呵呵哒。我一言不发。我只是来打酱油的，我是来学习的，我是你们的帮手而已，别把希望寄托在一个等待入门的小朋友身上，否则后果自负（客户搞事情，可别拿我当挡箭牌）。 周末，趁热来一发Vue被赞的一B。至今没用过是不是太low B了。江湖传言，文档维护的相当流弊，何不前往一探究竟 。 于是开始了我学习新技能的一贯作风，啃文档！ 好吧，get start,我的最爱，按部就班，照猫画虎，比葫芦画瓢…… 来个Vue的ToDoList 吧。 脱了衣服，说干就干。 效果永远如此low B,css 是我不愿提及的痛！ 很简单，输入框内填写内容，敲击回车，add one todo. 每个todo 都可以进行remove 和 update ,update 做的比较简单，依旧是输入框输入内容，然后直接点击要更新的todo 的update 按钮即可。 总数量 total 通过vuex 的getters 获得 todos.length。 思路是不是很清晰？道理是不是很简单？你别急，惊喜和意外在后面。 惊喜？！意外？！写了这么久不上一点代码，有点耍流氓的赶脚。所以，走一波 code。 package.json1234567891011121314151617181920212223242526&#123; "name": "vue-todolist", "version": "1.0.0", "description": "", "main": "index.js", "scripts": &#123; "test": "echo \"Error: no test specified\" &amp;&amp; exit 1" &#125;, "author": "peter", "license": "ISC", "dependencies": &#123; "element-ui": "^2.0.10",//这货并没有用到，也就是研究的时候好奇，装上看看 "vue": "^2.5.13", "vue-router": "^3.0.1",//同上 "vuex": "^3.0.1" &#125;, "devDependencies": &#123; "babel-plugin-transform-runtime": "^6.23.0", "babel-preset-es2015": "^6.24.1", "parcel-bundler": "^1.4.1",//这个可是最新流行的小鲜肉，近乎“0配置”的打包工具 "parcel-plugin-vue": "^1.5.0",//这个是与上结合食用的插件 "vue-template-compiler": "^2.5.13", "babel-preset-env": "^1.3.2", "babel-preset-stage-2": "^6.22.0" &#125;&#125; .babelrc123456&#123; "presets": [ "env", "stage-2" ]&#125; 项目结构 因为太简单，压根也没有任何组件化的余地，所以，components文件夹形同虚设。 store1234567891011121314151617181920212223242526272829303132333435363738import Vue from 'vue';import Vuex from 'vuex';Vue.use(Vuex);//重点来了，这玩意一定要在store创建之前use，要不然会出错哦。const store = new Vuex.Store(&#123; state: &#123; todos: [] &#125;, mutations: &#123; add: (state, todo) =&gt; &#123; state.todos.push(todo); &#125;, remove: (state, id) =&gt; &#123; let index = state.todos.findIndex(v =&gt; v.id === id); state.todos.splice(index, 1); &#125;, update: (state, update) =&gt; &#123; let length = state.todos.length; for (let i = 0; i &lt; length; i++) &#123; let tmpTodo = state.todos[i]; if (tmpTodo.id === update.id) &#123; state.todos[i].content = update.content; break; &#125; &#125; &#125;, clear: state =&gt; state.todos = []//一会儿这里有惊喜和意外发生！！！ // clear: state =&gt; state.todos.splice(0, state.todos.length) 这行代码才是正解 &#125;, getters: &#123; count: state =&gt; state.todos.length, &#125;&#125;);const commit = store.commit;const getters = store.getters;export &#123; store, commit, getters &#125;; 整体看下来是不是和 mobx 很像。这哪里是很像，这简直就是一模一样（这样说Vue粉儿们会不会砍死我）。 clear方法，我一开始很不由自主的使用了原始暴力而且一贯有效没问题的 = []。后来事实证明，没有一层不变的写法，只有一直变化套路。 这种原始暴力的方式，在我使用Redux 和mobx的过程中简直就是屡试不爽，怎么突然就哑火了呢。 问题是这样的：虽然这种方式可以将store下state上的todos清空，但是并没有引起视图的变化。 Why？How？What？ 划重点来啦！！！ 这是clear之前的截图(有devtool就是爽，啥都一目了然、尽收眼底) 这是clear之后的图 咦，我擦，这是什么情况！！！ BUG！！！BUG！！！BUG！！！我惊慌失措了！！！ 淡定，遇到bug一定要冷静沉着思考分析…… 领悟！！！ 当我把模式调到查看组件状态时，借助devtool让我恍然大悟。 MMP，store.state.todos 是一个数组，而数组是一个Object，Object是引用类型数据，我将它传递给App的data.todos,等于是做了一次复制（浅拷贝），data保留的是对store.state.todos的引用。 是不是没明白，简单点吧： 12345678910111213141516store.state.todos-&gt; (old hash:12345)data.todos-&gt; (old hash:12345)store.state.todos = [];//这一操作之后，惊喜和意外发生了store.state.todos-&gt;(new hash:98765)data.todos-&gt;(old hash:12345)// 这里的hash是我为了说明情况儿 XJB 写的，别当真。//也就是说，暴力赋值空数组时候，state下的todos已经不是原来的那个todos了，//这个新的数组在内存中占有一份新的地理位置，//而原来的那个old todos的引用，依旧被data保持着，停留在内存里，成为了bug的滋生地//还是一种叫做内存泄漏的exception的源泉 App.vue12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758&lt;template&gt; &lt;div class="app"&gt; &lt;h1&gt;Vue ToDoList&lt;/h1&gt; &lt;input @keyup.enter="add" @input="input" :value="content" placeholder="做点什么吧..."/&gt; &lt;a class="btn-a" @click="clear"&gt;Clear&lt;/a&gt; &lt;a style="font-size:15pt;"&gt;total:&#123;&#123;count&#125;&#125;&lt;/a&gt; &lt;ul&gt; &lt;li v-for="t in todos"&gt; &lt;span&gt;&#123;&#123;t.content&#125;&#125;&lt;/span&gt; &lt;button @click="update(t.id)"&gt;update&lt;/button&gt; &lt;button @click="remove(t.id)"&gt;remove&lt;/button&gt; &lt;/li&gt; &lt;/ul&gt; &lt;/div&gt;&lt;/template&gt;&lt;script&gt;import &#123; TodoItem &#125; from "./components";import &#123; store, commit, getters &#125; from "./store";import todo from "./public/todo";export default &#123; name: "App", data() &#123; return &#123; todos: store.state.todos, content: "" &#125;; &#125;, computed: &#123; count: () =&gt; getters.count &#125;, methods: &#123; input: function(e) &#123; this.content = e.target.value; &#125;, add: function(e) &#123;//ES5写法多了几个字母，但是大大滴不一样哦 let t = new todo(); t.content = this.content; commit("add", t); this.content = ""; &#125;, remove: id =&gt; &#123;//注意这方法的写法与ES5写法的不同，很飘逸， commit("remove", id); &#125;, update: function(id) &#123; commit("update", &#123; id, content: this.content &#125;); this.content = ""; &#125;, clear: () =&gt; commit("clear") &#125;&#125;;&lt;/script&gt; 没办法，写到这种地步，只能咬牙继续，是谁说要好好学习的…… Vue 的基本属性 methods 的定义，让我百思不得其解了一小会儿。 比如，上述代码中看到的 add ,input update 这三个方法，我都采用了ES5的写法，通过function关键字定义函数；而remove和clear两个，我则使用了ES6的箭头函数写法。 同样是方法，怎么差距就这么大呢！！！ 其实一开始，我清一色的写的箭头函数，但是发现，有问题，问题很简答，this = undefined。 我就纳闷了，这尼玛又是什么鬼，也来不及再去Google了，之前乱投医，试一试吧，换成了ES5，嘿，无药而治，立竿见影，奇迹般地好了！ 真相只有一个！ —— 柯南。 如同没有无缘无故的爱，也没有无缘无故的恨那般，没有可能我随便一改写法，就奇迹般的好了！ 肯定有原因！ 箭头函数表达式的语法比函数表达式更短，并且不绑定自己的this，arguments，super或 new.target。这些函数表达式最适合用于非方法函数，并且它们不能用作构造函数。 MDN 有没有很清楚很明白，没有吧。 作为一个在React里漫天飞舞箭头函数绑定this的小前端而言，这么机器的翻译，我才不会当真呢！ 廖雪峰 看了廖老师的文章，赶紧换了套路—–&gt; MMP,这就是不问所以然，就XJB写的下场！ 仔细想一想吧。 能够调试是一件多么幸福的事情，一目了然的看到，function函数内的this指向的是整个VueComponent,而在箭头函数内，毛都没有！为啥呢？廖雪峰老师说的很明白了，就是说，箭头函数的this指向调用方的，而我将add方法通过@符号绑定给了input标签，而且在函数加载的过程中，input标签还没有挂载完毕呢，所以，箭头函数在那一瞬间，毛也咩有捕获到，所以它的this是个undefined，而function函数就不一样了，它在初始化的时候，捕捉到的是整个对象本身（VueComponent）,所以…… 虽然不知道这种理解方式对不对，但是暂时这样认为吧，回头再找大神求证。 尾声罗里吧嗦写了这么多，时间都是23：17了，也该告一段落了，对于我这个Vue新生儿来说，这一天折腾的已经不少了。 希望能够在往后的日子里，和她相爱不相杀。]]></content>
+      <tags>
+        <tag>技术</tag>
+        <tag>Vue</tag>
+        <tag>Vuex</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[buddha]]></title>
+    <url>%2F2017%2F12%2F24%2Fbuddha%2F</url>
+    <content type="text"><![CDATA[一段被无数前端程序员追奉经典的代码12345678910111213141516171819202122232425const buddhaBless = ()=&gt;&#123; console.log([ " _ooOoo_", " o8888888o", " 88\" . \"88", " (| -_- |)", " O\\ = /O", " ____/`---'\\____", " .' \\\\| |// `.", " / \\\\||| : |||// \\", " / _||||| -:- |||||- \\", " | | \\\\\\ - /// | |", " | \\_| ''\\---/'' | |", " \\ .-\\__ `-` ___/-. /", " ___`. .' /--.--\\ `. . __", " .\"\" '&lt; `.___\\_&lt;|&gt;_/___.' &gt;'\"\".", " | | : `- \\`.;`\\ _ /`;.`/ - ` : | |", " \\ \\ `-. \\_ __\\ /__ _/ .-` / /", "======`-.____`-.___\\_____/___.-`____.-'======", " `=---='", "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^", " 佛祖保佑 永无BUG"].join('\n'));&#125; 惊不惊喜？意不意外？]]></content>
+      <tags>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mobx 初探]]></title>
+    <url>%2F2017%2F12%2F23%2FMobx-ToDoList%2F</url>
+    <content type="text"><![CDATA[Mobx 初探什么是Mobx 官网github-mobx 1234MobX 是一个经过战火洗礼的库，它通过透明的函数响应式编程(transparently applying functional reactive programming - TFRP)使得状态管理变得简单和可扩展。 更多详细介绍，请移步官网细阅。 为什么使用Mobx React 和 MobX 是一对强力组合。React 通过提供机制把应用状态转换为可渲染组件树并对其进行渲染。而MobX提供机制来存储和更新应用状态供 React 使用。 ——官方文档 可能我们都比较熟悉Redux,简而言之Mobx是比Redux更有力的和React结合使用的助手。 如何使用 下面我们就用一个例子简单的使用Mobx——ToDOList.Talking is cheap, show me your code!代码地址 由于没有和parcel使用初探的代码分离，所以，希望你也能看的明白 编辑器VSCode 编辑器配置 为了使用Es.next的装饰器语言@，需要配置VsCode，具体——如何(不)使用装饰器 依赖1234567//package.json file setup: &quot;dependencies&quot;: &#123; &quot;mobx&quot;: &quot;^3.4.1&quot;, &quot;mobx-react&quot;: &quot;^4.3.5&quot;, &quot;react&quot;: &quot;^16.2.0&quot;, &quot;react-dom&quot;: &quot;^16.2.0&quot; &#125; 12345678910//package.json file setup: &quot;devDependencies&quot;: &#123; &quot;babel-cli&quot;: &quot;^6.26.0&quot;, &quot;babel-plugin-transform-decorators-legacy&quot;: &quot;^1.3.4&quot;, &quot;babel-preset-env&quot;: &quot;^1.6.1&quot;, &quot;babel-preset-es2015&quot;: &quot;^6.24.1&quot;, &quot;babel-preset-react&quot;: &quot;^6.24.1&quot;, &quot;babel-preset-stage-1&quot;: &quot;^6.24.1&quot;, &quot;mobx-react-devtools&quot;: &quot;^4.2.15&quot;, &#125; 配置123456789101112//.babelrc file setup:&#123; &quot;presets&quot;: [ &quot;env&quot;, &quot;react&quot;, &quot;es2015&quot;, &quot;stage-1&quot; ], &quot;plugins&quot;: [ &quot;transform-decorators-legacy&quot; ]&#125; 代码store 创建12345678910111213141516171819202122232425262728293031323334353637import &#123; observable, autorun, computed, action &#125; from &apos;mobx&apos;;class toDo &#123; id = Math.random(); @observable title = &apos;&apos;; @observable completed = false;&#125;class todoStore &#123; @observable todos = []; @computed get completedCount() &#123; return this.todos.filter(todo =&gt; todo.completed).length; &#125; @computed get totalCount() &#123; return this.todos.length; &#125; @action.bound toggleCompleted(id) &#123; this.todos.forEach(todo =&gt; &#123; if (todo.id === id) todo.completed = !todo.completed; &#125;) &#125; @action.bound addToDo(title) &#123; if (!title) return alert(&apos;please input something...&apos;); let todo = new toDo(); todo.title = title; this.todos.push(todo); &#125;&#125;;const store = new todoStore();export &#123; store &#125; ToDo组件12345678910111213141516171819202122232425262728293031import React, &#123; Component &#125; from &apos;react&apos;;import &#123; observer &#125; from &quot;mobx-react&quot;;import &#123; store &#125; from &apos;../../store&apos;import &apos;./style.css&apos;@observer export default class ToDo extends Component &#123; constructor(props) &#123; super(props); &#125; render() &#123; const &#123; title, id, completed &#125; = this.props; return (&lt;div className=&#123;`todo $&#123;completed ? &apos;completed&apos; : &apos;&apos;&#125;`&#125; onClick=&#123;() =&gt; store.toggleCompleted(id)&#125; &gt; &#123;title&#125; &lt;/div&gt;); &#125;&#125;//style.css.todo&#123; background-color: white; text-align: center; font-size: 30px; margin: 3px;&#125;.todo.completed&#123; background-color: brown;&#125; App.js123456789101112131415161718192021222324252627282930313233343536373839import React, &#123; Component &#125; from &apos;react&apos;import &#123; observer &#125; from &quot;mobx-react&quot;;import DevTools from &apos;mobx-react-devtools&apos;import ToDo from &apos;./components/ToDo&apos;import &#123; store &#125; from &apos;./store&apos;const TEXT = &apos;please input something...&apos;;const ToDoList = (&#123; todos &#125;) =&gt; todos.map(t =&gt; &lt;ToDo key=&#123;t.id&#125; &#123;...t&#125; /&gt;);@observer export default class App extends Component &#123; constructor(props) &#123; super(props); this.state = &#123; title: &apos;&apos; &#125; &#125; render() &#123; const &#123; title &#125; = this.state; const &#123; todos, totalCount, completedCount &#125; = store; return (&lt;div className=&quot;APP&quot;&gt; &lt;input style=&#123;&#123; width: 300 &#125;&#125; placeholder=&#123;TEXT&#125; value=&#123;title&#125; onChange=&#123;e =&gt; this.setState(&#123; title: e.currentTarget.value &#125;)&#125; /&gt; &lt;button onClick=&#123;() =&gt; &#123; store.addToDo(title); this.setState(&#123; title: &apos;&apos; &#125;); &#125;&#125;&gt;Add one ToDo&lt;/button&gt; &lt;div&gt;&#123;`total count:$&#123;totalCount&#125;`&#125;&lt;/div&gt; &lt;div&gt;&#123;`total completed count:$&#123;completedCount&#125;`&#125;&lt;/div&gt; &lt;ToDoList todos=&#123;todos&#125; /&gt; &lt;DevTools /&gt; &lt;/div&gt;); &#125;&#125; 效果图]]></content>
+      <categories>
+        <category>Mobx</category>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Parcel & React 初探]]></title>
+    <url>%2F2017%2F12%2F23%2Fparcel-react-demo%2F</url>
+    <content type="text"><![CDATA[parcel-react-demo项目地址 parcel官网 1234Parcel 是一个网络应用打包工具, 适用于经验不同的开发者.它利用多核处理提供了极快的速度, 并且不需要任何配置. React官网 1234A JavaScript library一个用于构建用户图片界面的for building user interfacesjavascript 库 parcel &amp; React 根据本工程根目录下的package.json的描述文件install相关依赖 事前准备Yarn: 1yarn global add parcel-bundler npm: 1npm install -g parcel-bundler 全局安装后就可以使用parcel了。 使用后感 很快（缓存机制） 简单上手（配置项很少） 有待采坑]]></content>
+      <categories>
+        <category>Parcel</category>
+        <category>React</category>
+      </categories>
+      <tags>
+        <tag>技术</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[My Gallery]]></title>
+    <url>%2F2017%2F12%2F12%2FMy-Gallery%2F</url>
+    <content type="text"><![CDATA[My Gallery]]></content>
+      <categories>
+        <category>美图</category>
+      </categories>
+      <tags>
+        <tag>photos</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[React 介绍]]></title>
+    <url>%2F2017%2F12%2F11%2FReact-%E4%BB%8B%E7%BB%8D%2F</url>
+    <content type="text"><![CDATA[概述 A JavaScript library for building user interfaces用来构建用户界面一个JS库 理念UI = render(data)数据驱动视图 UI：视图，一个函数的执行结果 render：纯函数，没有任何副作用 data: state,状态驱动视图变化 Virtual DOM 虚拟DOM直接修改DOM元素的代价太大，通过虚拟DOM的变化，引起真实DOM的变化，相对cheap。 流程图事件 —-&gt; render —-&gt; virtual DOM 变化 —-&gt; DOM节点修改 数据props 组件对外接口state 组件内部状态区别 prop用于定义外部接口 state用于记录内部状态 prop的赋值在外部世界使用组件时 state的赋值在组件内部 组件不应该改变prop的值 state存在的意义就是让组件发生改变 生命周期三个过程： 装载过程（Mount）也就是把组件第一次在DOM树上渲染的过程 更新过程（Update）当组件被重新渲染的过程 卸载过程（Unmount）组件从DOM树上删除的过程 装载过程生命周期方法： constructor componentWillMount 在此方法内setState无效 render 纯函数 并不往状态树上挂在DOM，只是返回一个JSX对象，React库根据返回对象决定如何渲染 componentDidMount 可以再次方法内获取到任何组件内DOM节点，因为组件已经挂载完毕 更新过程生命周期方法： componentWillReceiveProps(nextProps) 通过setState方法出发更新不会调用此函数 shouldComponentUpdate(nextProps,nextState) 最重要函数之一，必须有返回结果（boolean类型），可以通过定制此函数决定组件是否需要重新渲染，进而提升性能 componentWillUpdate 不可以在此方法内setState,会造成死循环 render componentDidUpdate 不可以在此方法内setState,会造成死循环 componentDidCatch(err, info)(v16新特性) componentDidCatch this.forceUpdate();可以暴力的触发一次重新绘制（render） 卸载过程生命周期方法： componentWillUnmount 组件分类 stateless: 无状态组件 class: 类组件 functional: 函数式组件 提高效率脚手架 &amp; tools create-react-app create-component-app styled-components npm i create-react-app -g npm i create-component-app npm i styled-components --save]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>技术</tag>
+        <tag>React</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[English In A Moinute]]></title>
+    <url>%2F2017%2F12%2F11%2FEnglish-In-A-Moinute%2F</url>
+    <content type="text"><![CDATA[Break even 收支平衡、够本conversition:Hey, how is your friend‘s new business doing? 嘿，你朋友的新开业的生意怎么样？ The first year her coffee shop was open, she barely broke even. 她咖啡馆第一年营业，仅仅够本而已。 That&apos;s not bad. Many small businesses don&apos;t even make it to the second year. let alone break even. 已经很不错了，许多小本生意甚至都维持不到第二年，更何况收支平衡 了。 Yeah, she is really hoping to actually earn a profit this year. 是呀，她非常希望今年能盈利。 Keep your eye on the ball 集中注意力conversition:Hey, John. How&apos;s your Arabic /&apos;ærəbik/ （阿拉伯）class going? 嘿，约翰。你的阿拉伯课程学的怎么样？ It&apos;s going okay. I&apos;m not studying as much as I should be. 还好吧。不过我并没有很努力地学习。 John, you&apos;d better keep your eye on the ball, if you want to win that scholarship to study in Egypt /ˈi:dʒɪpt/ (埃及). 约翰，你最好重视起来了,如果你想赢得去埃及学习的奖学金的话。 keep your eye on the ball: means keep your attention to something that is important to you or to reach a goal. 意味着把注意力放在对你而言比较重要的事情上，或者是为了实现某个目标。 Moving Targetconversition:a target is something you want to hit, like you shoot a bow and arrow. 一个任务（靶子）就是你想打中的一个东西，就好像你拉弓射箭为了集中靶心。 or a goal you want to reach . 换言之就是一个你想要达到的目标。 last month, the boss said the first person to get 100 new customers would get a 1000$ bonus. 上个月，老板说谁第一个拉到了100个新客户就可以获得1000美元的奖金。 And now he tells us we need to get 200 before getting the bonus money ! 然而现在他却告诉我们说想要获得奖金，还需要在拉到200个客户！ it&apos;s just not fair! with him , it&apos;s always a moving target! 这实在是不公平，对于他而言，目标总是在变化！]]></content>
+      <categories>
+        <category>精进</category>
+        <category>learning</category>
+      </categories>
+      <tags>
+        <tag>English</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[成为更好的自己]]></title>
+    <url>%2F2017%2F12%2F10%2F%E6%88%90%E4%B8%BA%E6%9C%80%E5%A5%BD%E7%9A%84%E8%87%AA%E5%B7%B1%2F</url>
+    <content type="text"><![CDATA[每个人都渴望成功，成功源自于更好的自己！ 成为更好的自己个人管理 2017回顾 2018计划 总结为了成为一个更好的自己，就要更加清晰地认识自己。为了成为一个更好的自己，就要能认识到自己的缺陷。为了成为一个更好的自己，就要能够努力提高自己的短板。为了成为一个更好的自己，就要在意识到自己还不够好的那一刻行动起来！]]></content>
+      <categories>
+        <category>精进</category>
+      </categories>
+      <tags>
+        <tag>自我提升</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[玛格丽特小镇]]></title>
+    <url>%2F2017%2F12%2F09%2F%E7%8E%9B%E6%A0%BC%E4%B8%BD%E7%89%B9%E5%B0%8F%E9%95%87%2F</url>
+    <content type="text"><![CDATA[爱一个女人一生，意味着你要去爱一个少女、一个少妇、一个忙忙碌碌的中年妇女,以及一个唠唠叨叨的老太太。 睡在床上的玛吉摘录 有时候，我们会言过其实。有时候，我们会说一些不是那么真实的话，暗自希望说出来以后即会成真。 感悟是这样的，有时候，我们以为自己是那样的感觉，说了出来，其实我们真是的感觉并不是那样的。就像我们经常在电影里看到的对白：“其实，我并没有自己认为的那样爱你……”。 有时候，我们以为自己爱上了一个人，迫不及待的将这种想法表达出来，而事实上，可能我们错误的估计了自己对待对方的感情，也许只是一种单纯的吸引而已。 我们会说一些不真实的话的原因是因为我们没有真正的理解自己的内心，并不知道什么是自己想要的和不能接纳的，我们捉摸不到自己的棱角和边界。所以当我们做出一些决定和说出一些话的时候，我们自己也是模糊的，也不清楚到底是不是那样的一个情况。 还有一种情况就是，我们之所以那样说，是为了让现实成为我们所说的那个样子。这只是一种简单的自我催眠而已，运气好的话，或许真的可以梦想成真。 主人公貌似是后者，他像玛吉说出了“我爱你”，可是玛吉却一言未发的跑开了，然后在几个街区以外的电话厅里给这个比自己年长曾是自己的助教的男人打电话回应道：“我爱你”。 就像主人公自己所言，玛吉跑开的这段空缺里，一定思考了很多，最后还是确定了一件事情，那就是可以向这个说爱自己的男人说“我爱你”。所以，主人公相信，这样经过深思熟虑的“爱”，是真的爱，他并没有为了玛吉的跑开而失落，反而觉得很欣慰。 之前看到一个美国人拍的视频，讲述美国人对待婚恋的观点，他讲到美国父母并不会很在意你的另一半有没有钱，有没有房子车子，美国父母在意的是你是不是真的爱你的另一半，是不是真的愿意和对方度过余生，和对方在一起是不是真的快乐。 他还讲到，美国男女朋友在一起大概经过一两年才会跟对方讲出那句我们国人觉得一开始就应该说出的话：“我爱你”。他们觉得，一开始就说这句话，有点太草率了，有点不负责任，有点操之过急，总之就是有点不切实际。毕竟第一次相见就能说出“我爱你”，可见这种“爱”是多么的随便和廉价。 可以看出，美国人对待爱情是非常理性的，他们可以接受作为男女朋友的交往和同居，但是并不一定说是在建立在爱彼此的基础上。他们可能觉得存在快乐的感觉就足够了，只有通过慢慢的相处下来，彼此的缺点优点都暴露无遗了，如果彼此还能接受和忍受，那么或许才有一定的基础可以共度一生，才值得说出那句“我爱你”。 抑或在此期间你又会遇到更加让你心动的人呢？ 摘录 爱情伊始不就是对彼此的好奇心吗？一个人为什么会坚持读一本书？书的第一句话？还不错。第一章？也还行。等你快读到第三章时，为何不干脆读完呢？ 感悟在这一章节里，我对主人公有了新的认识，他是一个胆小而又怯懦的人，尤其对待感情。他不敢承认也不敢开口真正意义上的向玛吉求婚，作出承诺，给她一个充满爱的家庭和生活。当贝丝想要就这个问题询问他的时候，他开始闪烁其辞、选择逃避。 在和玛吉开车的路上，他又一次表现出了他性格里的矛盾，我甚至在他身上看到了些许自己的影子。那就是明明是那样的一种心理，却又推三阻四的不肯承认。我当然知道主人公对玛吉是真心的，但是他却有点不太相信自己能给玛吉一个承诺，以至于说出了一些让他自己蒙羞的话。 懦弱的人就是这样，遇到哪怕已经到手的美好，也生怕自己不配拥有，也觉得自己可能没有足够的能力保护得好那份美好。 爱情的伊始，不就是对彼此的好奇心吗？ 如果连自己的好奇心都没有勇气坚持下去，那可真的是一个彻头彻尾的可怜虫呢！ 摘录 人们常说，恋人通常都是小偷，的确，爱一个人就很难不从对方那里盗取某些东西。 爱情就像一个学步的贪婪孩子，只认得两个字，那就是“我的”。 感悟在这一章节里，主人公已是一个将死之人，他用写小说的方式为我们讲述了前两章节他和玛吉的故事，一切的一切都漏洞百出，这一点从贝丝的嘴里我们可以得知，贝丝是主人公的姐姐，不过貌似还不是亲生的，但是不可否认贝丝很爱主人公。 主人公讲到，这文章抑或这小说，是写给他和玛吉的女儿——简——看的。他甚至自述了自己年轻时是个骗子、撒谎者、一个彻头彻尾的混蛋的事实，看来我对他的判断还是讲得通的。他自己也自嘲道：现实中，坏蛋和恋爱男主角同为一人的概率，往往远比你想象的要高。 在恋爱里，我们每个人都是小偷，偷走对方原本属于他/她的本来的一部分，然后异化或同化为自我的一部分。 我们往往无法喜欢一个人的全部，当在对方身上看到我们无法接纳的一面的时候，我们就会想尽办法的折腾对方去改变，去修正为自己喜欢的样子。其实他们并没有什么错，为什么要改变？为什么要修正呢？ 自私的是我们才对，没有哪个人生来就是完全百分之百迎合另外一个人的。每个人都有其独特的个性，我们既然能够喜欢对方的某些方面，我们就应该也去接受某些我们不太喜欢的方面，只有这样，我们才能得到一个完整的没有被异化或者同化过的原原本本的对方，这或许也就是我们当初爱上彼此的初衷。 爱情里的每个人都是自私的小孩。因为占有，所以专横。我的——我就有一定的权利去改造，如果某一个点不让我满意，我就可以肆意妄为的delete 掉。但是最后，这样的一份感情恐怕是没有办法维持下去的。 就像主人公说的，很快，玛格丽特又把从他那里得到的姓氏还了回来（离婚），从此以后一直保持“汤”的姓氏。 摘录 夜半时分，我们都会变成无措的孩子。 感悟说这话的人是玛吉，联系上下文来看的话，貌似是在挖苦完她的姑妈们都是老古板之后又对自己的某些行为作出的自我辩解。 她觉得自己是个孩子，不仅仅限于夜半时分。她只是说在夜半时分的时候才会意识到这一点而已，因为只有这样以一个孩子的身份，才能解释她白天的某些夸张、荒诞的行为。 或许，真如其言，我们都是这样的一群夜半时分才会意识到自己是个孩子的“孩子”。 摘录 彼此相爱的两个人，必须了解对方的一切，这是一句谎言。爱情当中，必须时不时的保持距离。 感悟是不是觉得这话说的有点不合常理。 我们的公知大概就是，在爱情中我们要尽一切可能的多了解彼此，才能最大程度的消除和规避我们之间的争吵和矛盾。可是文章的这个观点好像完全悖于常理。 在我的理解中，作者的观点是有一定的道理的。试想一下，谈一场恋爱，或者穷其一生和某一个人长相厮守，假如这个人是一个你了解的彻头彻尾的人，你觉得这场没有任何悬念的恋爱，这种一眼穷尽的白头偕老，还有什么趣味性可言吗？你会想要这样的感情生活吗？ 爱情应该像一场旅途和探险，过程之所以那么让人流连忘返，不是因为我们多么熟悉所有角落的风景是什么样子，恰恰是那种循序渐进的探索式的获得对未知的了解，才让我们享受其中，感情中正是这种逐渐的对彼此加深了解的过程才让我们对另一个人欲罢不能，才让我们在一个又一个的拐角处发现他/她不尽相同的魅力和特点，这才是两个人在一起经久不厌的根基。 这也解释了为什么我们找对象不喜欢从身边熟悉的人入手，就如那句俗话说的：兔子不吃窝边草。不是因为窝边草不好吃，而是这片草我们太熟悉了，没有任何刺激感、新鲜感、陌生感。 摘录 所有故事都一个样，不是吗？男人和女人相恋或失恋。有人出生，有人死去。不是幸福收尾，就是悲伤结局，只是故事中涉及的人物各不相同。某种意义上，这些男人和女人其实也都一个样。 感悟这段话，作者假借玛吉之口说出，道尽了世间生活的本质和真相，有一种大彻大悟在里面蕴含着，使得玛吉这个形象一下子高大了起来。 摘录 没有记忆的人，拿起笔时也会成为饱经世事之人。 感悟这话说的我老脸一红。哈哈哈。]]></content>
+      <categories>
+        <category>novel</category>
+      </categories>
+      <tags>
+        <tag>玛格丽特小镇</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Money]]></title>
+    <url>%2F2017%2F12%2F09%2Fmoney%2F</url>
+    <content type="text"><![CDATA[金钱并不是人生的全部 没有钱也许我们寸步难行，但是金钱却不是全部 ! —— Peter 比特币很疯狂 最近比特币炒的沸沸扬扬，据说在国外单价已经上升到了19000$,前美国美联储主席 格林斯潘 站出来发言，说是没有金银贵重金属作支撑的货币，早晚会落得一个美国独立战争期间的“大陆币”——一文不值，其主要原因就是没有贵重金属作为其财富的主要象征支撑。 金钱，从小到大的“朋友”从小我们就开始接触金钱，小到一毛两毛五毛的纸票、硬币，大到我们生怕弄丢把口袋无得紧紧的几十上百的学费，我们每个人对于金钱都不陌生，但是在我们的成长过程中，上到学校老师，下到家长亲人，并没有哪个人去教导我们如何处理和金钱的关系以及我们应该如何正确的对待金钱。（毕竟，这些大人其实对于处理和金钱的关系也并不是左右逢源的，那还顾得及教育我们） 大概从高中开始，我们开始在政治课上接触经济学基本原理，了解到金钱的本质（货币）——一般等价物。我们知道了金钱的出现是为了减少或避免人们在以物易物的过程中麻烦，我们知道了金钱的购买力并不是一成不变的，货币可能贬值还可能升值，我们知道了世界上每个国家都可以发行自己国家的货币，不同国家之间的贸易需要进行货币换算，进而又引出了一大堆的关于汇率的知识。还有通货膨胀啦，投资和理财呀，风险和利润呀，等等等等。 如何对待金钱？是的，我们明白了很多的基础概念，但是政治老师并没有像一位长者那样的切身的和我们谈论过生活中我们应该如何正确的对待和处理与金钱的关系。一路走来，无论我们的家庭贫穷也好，富足也罢，抑或是平平常常，我们都在使用金钱的过程中渐渐的形成了我们自己独特的金钱观。 就像开篇提到的 金钱并不是人生的全部。是的，像这种朴素儿简单的大道理，每个人都明白，但是真的当你面对金钱的诱惑或者是选择的时候，可能这些道理仅仅只是道理而已，并不能坚定不变的作为你行为的指导和准则。 中国有一句古话：君子爱财，取之有道。 在中国的古代，一个人能真正的被称为君子，说明这个人的思想以及道德品格都是非常端正的，但是即使是这样的人，他也还是爱财的，就和美一样（爱美之心，人皆有之），金钱就是生活中不可缺少的一种美的存在。君子虽然爱财，但是取之有道。所谓的取之有道就是说，君子获取钱财的途径是正规的、合法的，是通过自己的努力和劳动赚取的。 这样的君子是我们的榜样，无论是古代还是现代，我们都应该提倡通过合法的途径和方式去获取钱财，不要做那些钻营取巧（不合法）的勾当。 为富不仁？中国还有一句古话是说：达则兼济天下，穷则独善其身 前不久的互联网大会上，京东的老总刘强东就发表了一席关于这方面讲话。大概意思就是说，我们当今社会下的中国富人，大多为富不仁，集聚财富的手段和途径也有可能存在灰暗地带，而且也并没有响应国家的号召“让一部分人先富起来，然后带动其他人也富起来”。 当然，这些话是说给其他的互联网金融地产大佬们听的，我们这些平常百姓是兼济不了天下了，我们唯一能做的就是独善其身的同时等待着什么时候能称谓被兼济到的一员。 物质生活的匮乏不仅仅会束缚我们的想象力，更有可能让我们陷入金钱的桎梏。当一个人的生活是以金钱为导向的时候，那么他的生活也就丧失了乐趣和活力。 金钱带来烦恼？我身边就有这样的例子，W是我的一个女同事，她30不到的年龄都已经有了10多年的工作经验，读书时代都开始了打工赚取自己人生的第一桶金，如今不仅在老家买了房和车，还有了自己的家庭和孩子，本来是要算计着早早退休过逍遥的生活呢，奈何养老钱没挣够，这又出来打工了。 她给我讲了很多关于她早些年如何积聚财富的事情，开过餐馆，做过老师，买过服装，开过培训机构，干过测试，还曾是产品经理，混迹过娱乐圈，也在金融行业摸打滚爬过，可谓是人生阅历和经验相当之丰富。她自己之言现在车房娃都有了，但是由于养老的钱还不够，所以又出来工作了。 当时她给我的印象是：牛逼的人生，不需要解释。 直到后来再一次团队聚餐的时候，她走在路上和我们说，她被他的老同学看不起的事情，她说她的那些老同学（闺蜜），每次和她一起上街就会说她，也不换个苹果手机，拿着小米屌丝机寒碜得慌，还向她炫耀新买的包包之类的。她说她很烦恼，简直不知道该怎么面对自己和朋友，感觉自己过得很失败，身材从生完小孩就一直胖的没型（确实很胖哦），也没有买过什么化妆品（皮肤天生的挺好的），她自己觉得自己这几年越活越悲惨了。 其他女同事还劝解她不要把这种事情放在心上，走自己的路，让别人说去就好了。可是过没几天，她就买了一部新出的iPhone X，而且是沟通非官方途径购买的，花费了10000多RMB，她拿着新手机给我们看时，我们每个人都露出了羡慕的目光，她自己却长舒一口气说，到底还是买了，看她们还说我土鳖。 当时我听了这话就想，她还是没能做到走自己的路，让别人说去吧。 有时候，我们生活中的牢笼不是别人带来的，而是因为自己的太过在意别人的眼光。 其实这件事情并不是重点，重点是要说这位W对于金钱的态度，她其实应该算是挺有钱的人了，而且生钱有道，还投资过上文提到的比特币，当然是卖早了，没有赶上这个风口，要不然就该辞职回家养老了。 每次我去找她协同工作，她都会和我讲一些她的生钱之道，比如多办几张信用卡，再去淘宝买个POS机，通过POS机，把信用卡的额度刷到自己的储蓄卡中，然后用这些钱买理财产品，月底到期，体现还信用卡，然后赚取理财的利息。她还讲了很多如何计算时间和期限，如何计算利润率，下载哪个App好用，哪个网站的年化利率高…… 听得我一愣一愣的，一旁的测试小妹我面面相觑，感觉自己这20多年白活了。她说他靠这种方式每个月能有2000多的利息入账，在北京的房租就到手了。还说买的新手机iPhone X就是用的这些钱买的。 累并快乐着？好吧，我承认，她确实很厉害，很有头脑，很会钻空子（她自己说的，这是信用卡和金融机构的空子，因为她在金融行业干过，所以她知道），很会赚钱。但是如果让我这样做的话，我肯定无法接受，不仅仅是因为我不精于算计，没有相关方面的头脑和知识，更多的是，我不想把自己的生活搞得太累太复杂。 以她自己的说法就是，每天都要关注着这些理财的动向和趋势，要去计算去预估，不能忘了什么时候出手，什么时候体现，等等。如果每天都要做这些事情，拿着手机看仪表盘，算计着各种率过日子，我想我一定过不来，所以我只能踏踏实实的老老实实的做工作，拿工资。 又一次她和我讲做测试很挣钱，让我考虑转行，我说没有这方面的兴趣，我还是喜欢做开发。她说我对于金钱的渴望不够强烈。我笑而不语。 就是这一刻，我对她又有了新的认识，关于她的金钱观，让我发自内心的反省自我。好在我还没有向她那样，把兴趣爱好，工作职业都以金钱为目的和导向。 做你喜欢的事情，不仅仅是为了金钱做你喜欢做的，把兴趣当成自己的职业才是最幸福的。这又是一个简单而朴素的大道理。也许我没能成为最幸福的，但是我一定不要沦为金钱的奴隶，最那个最不幸的人。 可能有人会说我这就是彻头彻尾的没有被逼到那个地步，所以感觉没有那种对于金钱的迫切需要，所以可以高枕无忧的做自己喜欢的工作。我想或许是的，但是我想说的是，既然生活没有那么紧张，干嘛非要把自己逼到那种地步呢。 最后想我说：做自己喜欢的事，钱那么多，永远挣不完的。]]></content>
+      <categories>
+        <category>notes</category>
+      </categories>
+      <tags>
+        <tag>think</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2017%2F12%2F08%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>

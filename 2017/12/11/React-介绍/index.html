@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="概述 A JavaScript library for building user interfaces用来构建用户界面一个JS库  理念UI = render(data)数据驱动视图 UI：视图，一个函数的执行结果 render：纯函数，没有任何副作用 data: state,状态驱动视图变化 Virtual DOM 虚拟DOM直接修改DOM元素的代价太大，通过虚拟DOM的变化，引起真实DOM的">
+<meta name="keywords" content="技术,React">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React 介绍">
+<meta property="og:url" content="https://githubjike.github.io/2017/12/11/React-介绍/index.html">
+<meta property="og:site_name" content="PeterYuan&#39;s Blog">
+<meta property="og:description" content="概述 A JavaScript library for building user interfaces用来构建用户界面一个JS库  理念UI = render(data)数据驱动视图 UI：视图，一个函数的执行结果 render：纯函数，没有任何副作用 data: state,状态驱动视图变化 Virtual DOM 虚拟DOM直接修改DOM元素的代价太大，通过虚拟DOM的变化，引起真实DOM的">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2017-12-11T09:37:54.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="React 介绍">
+<meta name="twitter:description" content="概述 A JavaScript library for building user interfaces用来构建用户界面一个JS库  理念UI = render(data)数据驱动视图 UI：视图，一个函数的执行结果 render：纯函数，没有任何副作用 data: state,状态驱动视图变化 Virtual DOM 虚拟DOM直接修改DOM元素的代价太大，通过虚拟DOM的变化，引起真实DOM的">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>React 介绍</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 vazir">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2017/12/12/My-Gallery/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2017/12/11/English-In-A-Moinute/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://githubjike.github.io/2017/12/11/React-介绍/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://githubjike.github.io/2017/12/11/React-介绍/&text=React 介绍"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://githubjike.github.io/2017/12/11/React-介绍/&title=React 介绍"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://githubjike.github.io/2017/12/11/React-介绍/&is_video=false&description=React 介绍"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=React 介绍&body=Check out this article: https://githubjike.github.io/2017/12/11/React-介绍/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://githubjike.github.io/2017/12/11/React-介绍/&title=React 介绍"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://githubjike.github.io/2017/12/11/React-介绍/&title=React 介绍"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://githubjike.github.io/2017/12/11/React-介绍/&title=React 介绍"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://githubjike.github.io/2017/12/11/React-介绍/&title=React 介绍"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://githubjike.github.io/2017/12/11/React-介绍/&name=React 介绍&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#理念"><span class="toc-number">1.1.</span> <span class="toc-text">理念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Virtual-DOM-虚拟DOM"><span class="toc-number">1.2.</span> <span class="toc-text">Virtual DOM 虚拟DOM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程图"><span class="toc-number">1.3.</span> <span class="toc-text">流程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据"><span class="toc-number">1.4.</span> <span class="toc-text">数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#props-组件对外接口"><span class="toc-number">1.4.1.</span> <span class="toc-text">props 组件对外接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#state-组件内部状态"><span class="toc-number">1.4.2.</span> <span class="toc-text">state 组件内部状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#区别"><span class="toc-number">1.4.3.</span> <span class="toc-text">区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生命周期"><span class="toc-number">1.5.</span> <span class="toc-text">生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三个过程："><span class="toc-number">1.5.1.</span> <span class="toc-text">三个过程：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#装载过程生命周期方法："><span class="toc-number">1.5.2.</span> <span class="toc-text">装载过程生命周期方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新过程生命周期方法："><span class="toc-number">1.5.3.</span> <span class="toc-text">更新过程生命周期方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载过程生命周期方法："><span class="toc-number">1.5.4.</span> <span class="toc-text">卸载过程生命周期方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组件分类"><span class="toc-number">1.5.5.</span> <span class="toc-text">组件分类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提高效率"><span class="toc-number">1.6.</span> <span class="toc-text">提高效率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#脚手架-amp-tools"><span class="toc-number">1.7.</span> <span class="toc-text">脚手架 &amp; tools</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        React 介绍
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">PeterYuan's Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-12-11T08:59:55.000Z" itemprop="datePublished">2017-12-11</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/React/">React</a>, <a class="tag-link" href="/tags/技术/">技术</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><blockquote>
+<p>A JavaScript library for building user interfaces<br>用来构建用户界面一个JS库</p>
+</blockquote>
+<h2 id="理念"><a href="#理念" class="headerlink" title="理念"></a>理念</h2><p><strong>UI = render(data)</strong><br><strong>数据驱动视图</strong></p>
+<pre><code>UI：视图，一个函数的执行结果
+render：纯函数，没有任何副作用
+data: state,状态驱动视图变化
+</code></pre><h2 id="Virtual-DOM-虚拟DOM"><a href="#Virtual-DOM-虚拟DOM" class="headerlink" title="Virtual DOM 虚拟DOM"></a>Virtual DOM 虚拟DOM</h2><p><strong>直接修改DOM元素的代价太大，通过虚拟DOM的变化，引起真实DOM的变化，相对cheap。</strong></p>
+<h2 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h2><p><strong>事件</strong>  —-&gt; <strong>render</strong>  —-&gt; <strong>virtual DOM 变化</strong> —-&gt; <strong>DOM节点修改</strong></p>
+<h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><h3 id="props-组件对外接口"><a href="#props-组件对外接口" class="headerlink" title="props 组件对外接口"></a>props 组件对外接口</h3><h3 id="state-组件内部状态"><a href="#state-组件内部状态" class="headerlink" title="state 组件内部状态"></a>state 组件内部状态</h3><h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><ul>
+<li>prop用于定义外部接口</li>
+<li>state用于记录内部状态</li>
+<li>prop的赋值在外部世界使用组件时</li>
+<li>state的赋值在组件内部</li>
+<li>组件不应该改变prop的值</li>
+<li>state存在的意义就是让组件发生改变</li>
+</ul>
+<h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><h3 id="三个过程："><a href="#三个过程：" class="headerlink" title="三个过程："></a>三个过程：</h3><ul>
+<li>装载过程（Mount）也就是把组件第一次在DOM树上渲染的过程</li>
+<li>更新过程（Update）当组件被重新渲染的过程</li>
+<li>卸载过程（Unmount）组件从DOM树上删除的过程</li>
+</ul>
+<h3 id="装载过程生命周期方法："><a href="#装载过程生命周期方法：" class="headerlink" title="装载过程生命周期方法："></a>装载过程生命周期方法：</h3><ul>
+<li>constructor</li>
+<li>componentWillMount <code>在此方法内setState无效</code></li>
+<li>render <code>纯函数 并不往状态树上挂在DOM，只是返回一个JSX对象，React库根据返回对象决定如何渲染</code></li>
+<li>componentDidMount <code>可以再次方法内获取到任何组件内DOM节点，因为组件已经挂载完毕</code></li>
+</ul>
+<h3 id="更新过程生命周期方法："><a href="#更新过程生命周期方法：" class="headerlink" title="更新过程生命周期方法："></a>更新过程生命周期方法：</h3><ul>
+<li>componentWillReceiveProps(nextProps) <code>通过setState方法出发更新不会调用此函数</code></li>
+<li>shouldComponentUpdate(nextProps,nextState) <code>最重要函数之一，必须有返回结果（boolean类型），可以通过定制此函数决定组件是否需要重新渲染，进而提升性能</code></li>
+<li>componentWillUpdate <code>不可以在此方法内setState,会造成死循环</code></li>
+<li>render</li>
+<li>componentDidUpdate <code>不可以在此方法内setState,会造成死循环</code></li>
+<li>componentDidCatch(err, info)<code>(v16新特性)  componentDidCatch</code> </li>
+</ul>
+<hr>
+<pre><code>this.forceUpdate();可以暴力的触发一次重新绘制（render）
+</code></pre><hr>
+<h3 id="卸载过程生命周期方法："><a href="#卸载过程生命周期方法：" class="headerlink" title="卸载过程生命周期方法："></a>卸载过程生命周期方法：</h3><ul>
+<li>componentWillUnmount </li>
+</ul>
+<h3 id="组件分类"><a href="#组件分类" class="headerlink" title="组件分类"></a>组件分类</h3><ul>
+<li>stateless: 无状态组件</li>
+<li>class: 类组件</li>
+<li>functional: 函数式组件</li>
+</ul>
+<h2 id="提高效率"><a href="#提高效率" class="headerlink" title="提高效率"></a>提高效率</h2><h2 id="脚手架-amp-tools"><a href="#脚手架-amp-tools" class="headerlink" title="脚手架 &amp; tools"></a>脚手架 &amp; tools</h2><ul>
+<li><a style="color:blue" href="https://github.com/facebookincubator/create-react-app" target="_blank" rel="noopener">create-react-app</a></li>
+<li><a style="color:blue" href="https://github.com/CVarisco/create-component-app" target="_blank" rel="noopener">create-component-app</a></li>
+<li><a style="color:blue" href="https://www.styled-components.com/" target="_blank" rel="noopener">styled-components</a></li>
+</ul>
+<hr>
+<pre><code>npm i create-react-app -g  
+npm i create-component-app 
+npm i styled-components --save 
+</code></pre><hr>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#概述"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#理念"><span class="toc-number">1.1.</span> <span class="toc-text">理念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Virtual-DOM-虚拟DOM"><span class="toc-number">1.2.</span> <span class="toc-text">Virtual DOM 虚拟DOM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流程图"><span class="toc-number">1.3.</span> <span class="toc-text">流程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据"><span class="toc-number">1.4.</span> <span class="toc-text">数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#props-组件对外接口"><span class="toc-number">1.4.1.</span> <span class="toc-text">props 组件对外接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#state-组件内部状态"><span class="toc-number">1.4.2.</span> <span class="toc-text">state 组件内部状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#区别"><span class="toc-number">1.4.3.</span> <span class="toc-text">区别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生命周期"><span class="toc-number">1.5.</span> <span class="toc-text">生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三个过程："><span class="toc-number">1.5.1.</span> <span class="toc-text">三个过程：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#装载过程生命周期方法："><span class="toc-number">1.5.2.</span> <span class="toc-text">装载过程生命周期方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新过程生命周期方法："><span class="toc-number">1.5.3.</span> <span class="toc-text">更新过程生命周期方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#卸载过程生命周期方法："><span class="toc-number">1.5.4.</span> <span class="toc-text">卸载过程生命周期方法：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组件分类"><span class="toc-number">1.5.5.</span> <span class="toc-text">组件分类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提高效率"><span class="toc-number">1.6.</span> <span class="toc-text">提高效率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#脚手架-amp-tools"><span class="toc-number">1.7.</span> <span class="toc-text">脚手架 &amp; tools</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://githubjike.github.io/2017/12/11/React-介绍/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://githubjike.github.io/2017/12/11/React-介绍/&text=React 介绍"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://githubjike.github.io/2017/12/11/React-介绍/&title=React 介绍"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://githubjike.github.io/2017/12/11/React-介绍/&is_video=false&description=React 介绍"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=React 介绍&body=Check out this article: https://githubjike.github.io/2017/12/11/React-介绍/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://githubjike.github.io/2017/12/11/React-介绍/&title=React 介绍"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://githubjike.github.io/2017/12/11/React-介绍/&title=React 介绍"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://githubjike.github.io/2017/12/11/React-介绍/&title=React 介绍"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://githubjike.github.io/2017/12/11/React-介绍/&title=React 介绍"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://githubjike.github.io/2017/12/11/React-介绍/&name=React 介绍&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 Peter Yuan
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
