@@ -1202,11 +1202,13 @@ article .content .caption {
   margin-top: 4rem;
 }
 #footer {
-  margin-bottom: 10px;
+  position: absolute;
+  bottom: 0px;
   color: #666;
   vertical-align: top;
   text-align: center;
   font-size: 11px;
+  margin-top: 20px;
 }
 #footer ul {
   margin: 0;
@@ -1250,11 +1252,12 @@ article .content .caption {
     margin-bottom: 20px;
   }
   #footer .footer-left {
-    align-self: flex-start;
-    margin-right: 20px;
+    width: 100%;
+    margin-top: 10px;
   }
   #footer .footer-right {
-    align-self: flex-end;
+    margin-top: 20px;
+    width: 100%;
   }
 }
 .pagination {
