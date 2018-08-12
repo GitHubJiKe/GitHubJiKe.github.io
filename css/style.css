@@ -1215,12 +1215,10 @@ article .content .caption {
 }
 #footer li {
   display: inline-block;
-  margin-right: 15px;
+  padding-right: 10px;
+  padding-left: 10px;
   border-right: 1px solid #666;
   vertical-align: middle;
-}
-#footer li a {
-  margin-right: 15px;
 }
 #footer li:last-child {
   margin-right: 0;
