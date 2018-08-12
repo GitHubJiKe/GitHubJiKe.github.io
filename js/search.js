@@ -22,60 +22,67 @@
 // Pieter Robberechts <http://github.com/probberechts>
 
 /*exported searchFunc*/
-var searchFunc = function (path, searchId, contentId) {
 
-  function stripHtml(html) {
-    html = html.replace(/<style([\s\S]*?)<\/style>/gi, "");
-    html = html.replace(/<script([\s\S]*?)<\/script>/gi, "");
-    html = html.replace(/<figure([\s\S]*?)<\/figure>/gi, "");
-    html = html.replace(/<\/div>/ig, "\n");
-    html = html.replace(/<\/li>/ig, "\n");
-    html = html.replace(/<li>/ig, "  *  ");
-    html = html.replace(/<\/ul>/ig, "\n");
-    html = html.replace(/<\/p>/ig, "\n");
-    html = html.replace(/<br\s*[\/]?>/gi, "\n");
-    html = html.replace(/<[^>]+>/ig, "");
-    return html;
-  }
+var NOT_FOUND = '<p>No results found.</p>';
+var PLEASE_INPUT_SOMETHING = '<p>Please input something and Press Enter...</p>';
 
-  function getAllCombinations(keywords) {
-    var i, j, result = [];
+function stripHtml(html) {
+  html = html.replace(/<style([\s\S]*?)<\/style>/gi, "");
+  html = html.replace(/<script([\s\S]*?)<\/script>/gi, "");
+  html = html.replace(/<figure([\s\S]*?)<\/figure>/gi, "");
+  html = html.replace(/<\/div>/ig, "\n");
+  html = html.replace(/<\/li>/ig, "\n");
+  html = html.replace(/<li>/ig, "  *  ");
+  html = html.replace(/<\/ul>/ig, "\n");
+  html = html.replace(/<\/p>/ig, "\n");
+  html = html.replace(/<br\s*[\/]?>/gi, "\n");
+  html = html.replace(/<[^>]+>/ig, "");
+  return html;
+}
 
-    for (i = 0; i < keywords.length; i++) {
-      for (j = i + 1; j < keywords.length + 1; j++) {
-        result.push(keywords.slice(i, j).join(" "));
-      }
+function getAllCombinations(keywords) {
+  var i, j, result = [];
+
+  for (i = 0; i < keywords.length; i++) {
+    for (j = i + 1; j < keywords.length + 1; j++) {
+      result.push(keywords.slice(i, j).join(" "));
     }
-    return result;
   }
+  return result;
+}
 
+function getDatasByXmlResponse(xmlResponse) {
+  return $("entry", xmlResponse).map(function () {
+    return {
+      title: $("title", this).text(),
+      content: $("content", this).text(),
+      url: decodeURIComponent($("url", this).text())
+    };
+  }).get();
+}
+
+function getXmlResponse(path, cb) {
   $.ajax({
     url: path,
     dataType: "xml",
     success: function (xmlResponse) {
-      // get the contents from search data
-      var datas = $("entry", xmlResponse).map(function () {
-        return {
-          title: $("title", this).text(),
-          content: $("content", this).text(),
-          url: decodeURIComponent($("url", this).text())
-        };
-      }).get();
+      cb(null, xmlResponse);
+    },
+    fail: function (error) {
+      cb(error, null);
+    }
+  });
+}
 
-      var $input = document.getElementById(searchId);
-      if (!$input) { return; }
-      var $resultContent = document.getElementById(contentId);
-
-      $input.addEventListener("input", function () {
-        var resultList = [];
-        var keywords = getAllCombinations(this.value.trim().toLowerCase().split(" "))
-          .sort(function (a, b) { return b.split(" ").length - a.split(" ").length; });
-        $resultContent.innerHTML = "";
-        if (this.value.trim().length <= 0) {
-          return;
-        }
-        // perform local searching
-        datas.forEach(function (data) {
+function search(value, path, cb) {
+  if (value.trim().length <= 0) {
+    cb(new Error('No results found.'), null);
+  }
+  var resultList = [];
+  getXmlResponse(path, function (error, xmlResponse) {
+    if (xmlResponse) {
+      getDatasByXmlResponse(xmlResponse)
+        .forEach(function (data) {
           var matches = 0;
           if (!data.title || data.title.trim() === "") {
             data.title = "Untitled";
@@ -88,6 +95,7 @@ var searchFunc = function (path, searchId, contentId) {
           var firstOccur = -1;
           // only match artiles with not empty contents
           if (dataContent !== "") {
+            var keywords = getSortedKeyWordsByValue(value);
             keywords.forEach(function (keyword) {
               indexTitle = dataTitle.indexOf(keyword);
               indexContent = dataContent.indexOf(keyword);
@@ -138,17 +146,53 @@ var searchFunc = function (path, searchId, contentId) {
             searchResult.str += "</li>";
             resultList.push(searchResult);
           }
+          if (resultList.length === 0) {
+            return cb(null, NOT_FOUND);
+          }
+          resultList.sort(function (a, b) {
+            return b.rank - a.rank;
+          });
+          var result = "<ul class=\"search-result-list\">";
+          for (var i = 0; i < resultList.length; i++) {
+            result += resultList[i].str;
+          }
+          result += "</ul>";
+          cb(null, result);
         });
-        resultList.sort(function (a, b) {
-          return b.rank - a.rank;
-        });
-        var result = "<ul class=\"search-result-list\">";
-        for (var i = 0; i < resultList.length; i++) {
-          result += resultList[i].str;
-        }
-        result += "</ul>";
-        $resultContent.innerHTML = result;
-      });
     }
   });
+}
+
+function getSortedKeyWordsByValue(value) {
+  return getAllCombinations(value.trim().toLowerCase().split(" "))
+    .sort(function (a, b) { return b.split(" ").length - a.split(" ").length; });
+}
+
+
+var searchFunc = function (path, searchId, contentId) {
+  var $input = document.getElementById(searchId);
+  if (!$input) { return; }
+  var $resultContent = document.getElementById(contentId);
+  $input.addEventListener('keyup', function (e) {
+    if (e.keyCode === 13) {//敲击回车键
+      var value = e.target.value.trim();
+      value ? search(value, path, function (error, result) {
+        if (error) {
+          return $resultContent.innerHTML = NOT_FOUND;
+        }
+        $resultContent.innerHTML = result;
+      }) : $resultContent.innerHTML = PLEASE_INPUT_SOMETHING;
+    }
+  });
+  // $input.addEventListener("input", function (e) {
+  //   var value = e.target.value.trim();
+  //   value ? search(value, path, function (error, result) {
+  //     if (error) {
+  //       return $resultContent.innerHTML = NOT_FOUND;
+  //     }
+  //     $resultContent.innerHTML = result;
+  //   }) : $resultContent.innerHTML = PLEASE_INPUT_SOMETHING;
+  // });
+
+
 };
