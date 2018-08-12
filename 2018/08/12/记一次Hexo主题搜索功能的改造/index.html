@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/GitHubJiKe/pictures/master/images/20180812144637.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/GitHubJiKe/pictures/master/images/20180812144724.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/GitHubJiKe/pictures/master/images/20180812144935.png">
-<meta property="og:updated_time" content="2018-08-12T06:57:23.366Z">
+<meta property="og:updated_time" content="2018-08-12T06:58:49.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次Hexo主题搜索功能的改造">
 <meta name="twitter:description" content="Demo页  首先根据Hexo往常一样的使用主题的方式一样，将喜欢的主题git clone到博客目录下的theme下， 然后修改根目录下的_config.yml文件：  其次12345hexo g 生成htmlhexo s 本地预览hexo d 发布上线 然而我发现，根据官方的配置：  搜索区域可以出现，但是功能无法使用。 接着我在github提了issue，本想着等待作者的回复，但是作为一个前">
@@ -83,8 +83,10 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" href="/2018/08/12/2018-08-12/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
-        <li><a class="icon" href="/2018/08/12/2018-08-12/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="/2018/08/12/激励自我/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -233,35 +235,35 @@
 
     
     <footer id="footer">
-  <div class="footer-right">
+  <div style="display: block;width: 100%;">
     <nav>
-      <ul>
+      <ul style="display: flex;flex-direction: row;flex-wrap: wrap">
         
-          <li>
+          <li style="flex: 1;text-align: center;">
             <a href="/">
               Home
             </a>
           </li>
           
-          <li>
+          <li style="flex: 1;text-align: center;">
             <a href="/about/">
               About
             </a>
           </li>
           
-          <li>
+          <li style="flex: 1;text-align: center;">
             <a href="/archives/">
               Writing
             </a>
           </li>
           
-          <li>
+          <li style="flex: 1;text-align: center;">
             <a href="https://github.com/GitHubJiKe?tab=repositories">
               Projects
             </a>
           </li>
           
-          <li>
+          <li style="flex: 1;text-align: center;">
             <a href="/Search/">
               Search
             </a>
@@ -270,7 +272,7 @@
       </ul>
     </nav>
   </div>
-  <div class="footer-left">
+  <div style="display: block;padding: .625rem;width: 100%;">
     Copyright &copy;
       2018
         Peter Yuan
