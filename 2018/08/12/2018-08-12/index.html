@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang=en>
-<head>
-    <!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="how to fix hexo d error, please read this article: 解决用Hexo和GitHub搭建博客时hexo d命令报错问题">
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Test | PeterYuan&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="how to fix hexo d error, please read this article: 解决用Hexo和GitHub搭建博客时hexo d命令报错问题">
 <meta name="keywords" content="技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Test">
@@ -18,251 +17,80 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Test">
 <meta name="twitter:description" content="how to fix hexo d error, please read this article: 解决用Hexo和GitHub搭建博客时hexo d命令报错问题">
-    
-    
-        
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>Test</title>
-    <!-- styles -->
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- persian styles -->
-    
-      <link rel="stylesheet" href="/css/rtl.css">
-    
-    <!-- rss -->
-    
-    
-</head>
-
-<body class="max-width mx-auto px3 vazir">
-    
-      <div id="header-post">
-  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Writing</a></li>
-         
-          <li><a href="https://github.com/GitHubJiKe?tab=repositories">Projects</a></li>
-         
-          <li><a href="/Search/">Search</a></li>
-        
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        
-        <li><a class="icon" href="/2018/08/12/记一次Hexo主题搜索功能的改造/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">Previous post</span>
-      <span id="i-next" class="info" style="display:none;">Next post</span>
-      <span id="i-top" class="info" style="display:none;">Back to top</span>
-      <span id="i-share" class="info" style="display:none;">Share post</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://githubjike.github.io/2018/08/12/2018-08-12/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://githubjike.github.io/2018/08/12/2018-08-12/&text=Test"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://githubjike.github.io/2018/08/12/2018-08-12/&title=Test"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://githubjike.github.io/2018/08/12/2018-08-12/&is_video=false&description=Test"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Test&body=Check out this article: https://githubjike.github.io/2018/08/12/2018-08-12/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://githubjike.github.io/2018/08/12/2018-08-12/&title=Test"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://githubjike.github.io/2018/08/12/2018-08-12/&title=Test"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://githubjike.github.io/2018/08/12/2018-08-12/&title=Test"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://githubjike.github.io/2018/08/12/2018-08-12/&title=Test"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://githubjike.github.io/2018/08/12/2018-08-12/&name=Test&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-    <div id="toc">
-      
-    </div>
-  </span>
-</div>
-
-    
-    <div class="content index my4">
-        
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle" itemprop="name headline">
-        Test
-    </h1>
-
-
-
-    <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">PeterYuan's Blog</span>
-      </span>
-      
-    <div class="postdate">
-        <time datetime="2018-08-11T16:00:00.000Z" itemprop="datePublished">2018-08-12</time>
-    </div>
-
-
-      
-    <div class="article-tag">
-        <i class="fas fa-tag"></i>
-        <a class="tag-link" href="/tags/技术/">技术</a>
-    </div>
-
-
-    </div>
-  </header>
   
+    <link rel="icon" href="./favicon.ico">
+  
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+</html>
+<body style="
 
-  <div class="content" itemprop="articleBody">
+  background: url(./logo.png) center center no-repeat;
+  background-size: contain;
+
+
+  background-color: #eff0f6
+
+">
+  <div id="container">
+    <nav id="nav">
+  <header class="header">
+    <a href="/" class="title">Peter Yuan</a>
+  </header>
+  <div class="ctnWrap">
+    <div class="icons">
+      
+        
+          
+            <a href="https://github.com/GitHubJiKe" target="_blank" class="nav-icn iconfont icon-github"></a>
+          
+        
+      
+    </div>
+    <div class="menu">
+      
+        
+            <a href="/" class="nav-menu ">HOME</a>
+          
+        
+            <a href="/archives" class="nav-menu ">ARCHIVE</a>
+          
+        
+            <a href="/about" class="nav-menu ">ABOUT</a>
+          
+        
+      
+    </div>
+  </div>
+</nav>
+    <div id="main"><section class="article">
+  <h2 class="title">Test</h2>
+  <p class="sub">Aug 12, 2018</p>
+  <article class="content">
     <p>how to fix <strong>hexo d</strong> error, please read this article:</p>
 <p><a href="https://blog.csdn.net/Greenovia/article/details/60576985" target="_blank" rel="noopener">解决用Hexo和GitHub搭建博客时hexo d命令报错问题</a></p>
 
-  </div>
-</article>
-
-
-
-    </div>
+  </article>
+  <footer class="f-cf">
     
-      <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/archives/">Writing</a></li>
-         
-          <li><a href="https://github.com/GitHubJiKe?tab=repositories">Projects</a></li>
-         
-          <li><a href="/Search/">Search</a></li>
-        
-      </ul>
-    </div>
-
-    <div id="toc-footer" style="display: none">
+      <a href="/2018/08/30/2018-08-30/" class="link f-fl">⟵What We Are Talking About When We Talk About English Learning</a>
+    
+    
+      <a href="/2018/08/12/激励自我/" class="link f-fr">激励自我⟶</a>
+    
+  </footer>
+</section></div>
+    <footer id="footer" class="f-cf">
+  ypf9319@gmail.com
+  
+    
       
-    </div>
-
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://githubjike.github.io/2018/08/12/2018-08-12/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=https://githubjike.github.io/2018/08/12/2018-08-12/&text=Test"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://githubjike.github.io/2018/08/12/2018-08-12/&title=Test"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://githubjike.github.io/2018/08/12/2018-08-12/&is_video=false&description=Test"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Test&body=Check out this article: https://githubjike.github.io/2018/08/12/2018-08-12/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=https://githubjike.github.io/2018/08/12/2018-08-12/&title=Test"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=https://githubjike.github.io/2018/08/12/2018-08-12/&title=Test"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://githubjike.github.io/2018/08/12/2018-08-12/&title=Test"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=https://githubjike.github.io/2018/08/12/2018-08-12/&title=Test"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://githubjike.github.io/2018/08/12/2018-08-12/&name=Test&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-</ul>
-
-    </div>
-
-    <div id="actions-footer">
-        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
-        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
-        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
-        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
-    </div>
-
-  </div>
-</div>
-
+        · <a href="https://github.com/GitHubJiKe" target="_blank" class="nav-icn">GitHub</a>
+      
     
-    <footer id="footer">
-  <div style="display: block;width: 100%;">
-    <nav>
-      <ul style="display: flex;flex-direction: row;flex-wrap: wrap">
-        
-          <li style="flex: 1;text-align: center;">
-            <a href="/">
-              Home
-            </a>
-          </li>
-          
-          <li style="flex: 1;text-align: center;">
-            <a href="/about/">
-              About
-            </a>
-          </li>
-          
-          <li style="flex: 1;text-align: center;">
-            <a href="/archives/">
-              Writing
-            </a>
-          </li>
-          
-          <li style="flex: 1;text-align: center;">
-            <a href="https://github.com/GitHubJiKe?tab=repositories">
-              Projects
-            </a>
-          </li>
-          
-          <li style="flex: 1;text-align: center;">
-            <a href="/Search/">
-              Search
-            </a>
-          </li>
-          
-      </ul>
-    </nav>
-  </div>
-  <div style="display: block;padding: .625rem;width: 100%;">
-    Copyright &copy;
-      2018
-        Peter Yuan
-  </div>
-
+  
+  <span class="copyright">All rights reserved @Peter Yuan</span>
 </footer>
+  </div>
 </body>
 </html>
-<!-- styles -->
-<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
-
-<!-- jquery -->
-<script src="/lib/jquery/jquery.min.js"></script>
-<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
-<script src="/js/main.js"></script>
-<!-- search -->
-
-<!-- Google Analytics -->
-
-<!-- Baidu Analytics -->
-
-<!-- Disqus Comments -->
-
-
