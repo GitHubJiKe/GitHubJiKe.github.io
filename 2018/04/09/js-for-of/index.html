@@ -1,72 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    JS for ... of | PeterYuan&#39;s Blog
+  </title>
+  <meta name="description" content="this is a simple blog for me to record my life">
   
-  <title>JS for ... of | PeterYuan&#39;s Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ES6介绍ES6 借鉴 C++、Java、C# 和 Python 语言，引入了for…of循环，作为遍历所有数据结构的统一的方法。 一个数据结构只要部署了Symbol.iterator属性，就被视为具有 iterator 接口，就可以用for…of循环遍历它的成员。也就是说，for…of循环内部调用的是数据结构的Symbol.iterator方法。 for…of循环可以使用的范围包括数组、Set">
-<meta name="keywords" content="JS 技术">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JS for ... of">
-<meta property="og:url" content="https://githubjike.github.io/2018/04/09/js-for-of/index.html">
-<meta property="og:site_name" content="PeterYuan&#39;s Blog">
-<meta property="og:description" content="ES6介绍ES6 借鉴 C++、Java、C# 和 Python 语言，引入了for…of循环，作为遍历所有数据结构的统一的方法。 一个数据结构只要部署了Symbol.iterator属性，就被视为具有 iterator 接口，就可以用for…of循环遍历它的成员。也就是说，for…of循环内部调用的是数据结构的Symbol.iterator方法。 for…of循环可以使用的范围包括数组、Set">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-04-09T10:21:10.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS for ... of">
-<meta name="twitter:description" content="ES6介绍ES6 借鉴 C++、Java、C# 和 Python 语言，引入了for…of循环，作为遍历所有数据结构的统一的方法。 一个数据结构只要部署了Symbol.iterator属性，就被视为具有 iterator 接口，就可以用for…of循环遍历它的成员。也就是说，for…of循环内部调用的是数据结构的Symbol.iterator方法。 for…of循环可以使用的范围包括数组、Set">
+  <meta name="keywords" content="
+  JS 技术
+  ">
   
-    <link rel="icon" href="./favicon.ico">
+  <meta name="author" content="Peter Yuan">
+
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/images/icons/emoji/octocat.png">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   
-  <link rel="stylesheet" href="/css/index.css">
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 </head>
-</html>
-<body style="
 
-  background: url(./logo.png) center center no-repeat;
-  background-size: contain;
+<body id="replica-app">
 
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
 
-  background-color: #eff0f6
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
 
-">
-  <div id="container">
-    <nav id="nav">
-  <header class="header">
-    <a href="/" class="title">Peter Yuan</a>
-  </header>
-  <div class="ctnWrap">
-    <div class="icons">
-      
+      <ul class="navbar-nav float-left">
         
-          
-            <a href="https://github.com/GitHubJiKe" target="_blank" class="nav-icn iconfont icon-github"></a>
-          
+        <li><a href="/archives">Archives</a></li>
         
-      
-    </div>
-    <div class="menu">
-      
         
-            <a href="/" class="nav-menu ">HOME</a>
-          
+        <li><a href="/categories">Categories</a></li>
         
-            <a href="/archives" class="nav-menu ">ARCHIVE</a>
-          
         
-            <a href="/about" class="nav-menu ">ABOUT</a>
-          
+        <li><a href="/tags">Tags</a></li>
         
-      
+        
+        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://avatars0.githubusercontent.com/u/15058227?s=460&amp;v=4"> <i class="fa fa-caret-down"></i></a>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>
-    <div id="main"><section class="article">
-  <h2 class="title">JS for ... of</h2>
-  <p class="sub">Apr 9, 2018</p>
-  <article class="content">
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives" class="header-toolbar-right"> 19 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i class="fa fa-tags"></i> Tags </a>
+        <a href="/tags" class="header-toolbar-right"> 14 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories" class="header-toolbar-right"> 11 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">PeterYuan&#39;s Blog</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Peter Yuan
+
+    <span class="post-date float-right" title="{{moment(1523203200000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      <i class="fa fa-pencil-square-o"></i>
+      {{moment(1523203200000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>JS for ... of</h1>
     <h1 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h1><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>ES6 借鉴 C++、Java、C# 和 Python 语言，引入了for…of循环，作为遍历所有数据结构的统一的方法。</p>
 <p>一个数据结构只要部署了Symbol.iterator属性，就被视为具有 iterator 接口，就可以用for…of循环遍历它的成员。也就是说，for…of循环内部调用的是数据结构的Symbol.iterator方法。</p>
 <p>for…of循环可以使用的范围包括数组、Set 和 Map 结构、某些类似数组的对象（比如arguments对象、DOM NodeList 对象）、后文的 Generator 对象，以及字符串。</p>
@@ -74,26 +134,42 @@
 <p><strong>等同于forEach</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</span><br><span class="line">arr.forEach(<span class="function"><span class="params">v</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(v);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//打印结果：</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">6</span></span><br></pre></td></tr></table></figure></p>
 
   </article>
-  <footer class="f-cf">
+</div>
+
+
     
-      <a href="/2018/06/25/CSS-知识点/" class="link f-fl">⟵CSS-知识点</a>
-    
-    
-      <a href="/2018/01/06/Vue-Vuex/" class="link f-fr">Vue-Vuex⟶</a>
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="https://githubjike.github.io" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2019 Peter Yuan</li>
+      <li><a href="https://githubjike.github.io">Home</a></li>
+      
+      <li><a href="https://github.com/GitHubJiKe">Github</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </div>
     
   </footer>
-</section></div>
-    <footer id="footer" class="f-cf">
-  ypf9319@gmail.com
-  
-    
-      
-        · <a href="https://github.com/GitHubJiKe" target="_blank" class="nav-icn">GitHub</a>
-      
-    
-  
-  <span class="copyright">All rights reserved @Peter Yuan</span>
-</footer>
-  </div>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
 </body>
 </html>
